@@ -10,5 +10,9 @@ export async function GET(req:Request) {
     const pokemonData = pokemon.filter ((p) =>
     p.name.toLowerCase().includes(name?.toLowerCase() ?? "")
     );
+
+    // dont want to overwhelm the client so use the top 10
+
+    return NextResponse.json(pokemon.slice(0,10));
     
 }
